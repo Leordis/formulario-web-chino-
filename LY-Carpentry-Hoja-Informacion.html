@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&Y General Carpentry Solutions — Hoja de Información del Proyecto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA;
+    --surface:#FCFAF3;
+    --ink:#271D14;
+    --ink-soft:#6A5E4D;
+    --brass:#A8772E;
+    --brass-deep:#855E1F;
+    --forest:#33433C;
+    --line:#E4DBC9;
+    --line-strong:#CDBFA6;
+    --shadow:0 1px 2px rgba(39,29,20,.04), 0 18px 40px -28px rgba(39,29,20,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Hanken Grotesk",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px 80px;}
+
+  /* ---------- Header ---------- */
+  header{padding:54px 0 0;text-align:center;}
+  .monogram{
+    width:74px;height:74px;margin:0 auto 22px;
+    border:1.5px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Fraunces",serif;font-weight:600;font-size:1.9rem;
+    color:var(--ink);letter-spacing:.01em;
+    position:relative;
+  }
+  .monogram::after{
+    content:"";position:absolute;inset:5px;border:1px solid var(--line-strong);
+  }
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--brass-deep);font-weight:600;margin-bottom:14px;
+  }
+  h1{
+    font-family:"Fraunces",serif;font-weight:600;
+    font-size:clamp(1.9rem,5.4vw,2.7rem);line-height:1.08;
+    margin:0 0 6px;letter-spacing:-.01em;
+  }
+  .biz{
+    font-family:"Hanken Grotesk",sans-serif;font-weight:500;
+    color:var(--ink-soft);font-size:1.02rem;margin:0;
+  }
+  /* ruler signature */
+  .ruler{
+    height:16px;margin:30px 0 6px;
+    background-image:repeating-linear-gradient(to right,var(--line-strong) 0 1px,transparent 1px 22px);
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+            mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+  }
+
+  /* ---------- Intro note ---------- */
+  .note{
+    background:var(--surface);border:1px solid var(--line);
+    border-left:3px solid var(--brass);
+    padding:22px 24px;border-radius:3px;margin:34px 0 12px;
+    box-shadow:var(--shadow);
+  }
+  .note p{margin:0 0 10px;color:var(--ink-soft);}
+  .note p:last-child{margin-bottom:0;}
+  .note strong{color:var(--ink);font-weight:600;}
+
+  /* progress */
+  .progress{
+    display:flex;align-items:center;gap:12px;
+    margin:26px 0 8px;font-size:.82rem;color:var(--ink-soft);
+    letter-spacing:.02em;
+  }
+  .progress .bar{
+    flex:1;height:5px;background:var(--line);border-radius:99px;overflow:hidden;
+  }
+  .progress .fill{
+    height:100%;width:0;background:var(--brass);
+    border-radius:99px;transition:width .35s ease;
+  }
+  .progress b{color:var(--ink);font-weight:600;}
+
+  /* ---------- Sections ---------- */
+  section{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:4px;padding:30px 28px 12px;margin:22px 0;
+    box-shadow:var(--shadow);
+  }
+  .sec-head{
+    display:flex;align-items:baseline;gap:12px;
+    padding-bottom:18px;margin-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .sec-num{
+    font-family:"Fraunces",serif;font-weight:500;font-size:.95rem;
+    color:var(--brass-deep);font-feature-settings:"tnum";
+  }
+  .sec-title{
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;color:var(--ink);
+  }
+  .sec-icon{margin-left:auto;font-size:1.15rem;opacity:.5;}
+
+  .field{margin-bottom:22px;}
+  .field label{
+    display:flex;gap:9px;align-items:flex-start;
+    font-weight:600;font-size:.96rem;color:var(--ink);margin-bottom:9px;
+  }
+  .qn{
+    color:var(--brass-deep);font-family:"Fraunces",serif;
+    font-weight:600;font-feature-settings:"tnum";flex:none;min-width:24px;
+  }
+  .hint{display:block;font-weight:400;color:var(--ink-soft);font-size:.84rem;margin-top:2px;}
+  input[type=text],textarea{
+    width:100%;border:1px solid var(--line-strong);background:#fff;
+    border-radius:3px;padding:11px 13px;font:inherit;color:var(--ink);
+    transition:border-color .18s ease, box-shadow .18s ease;
+    resize:vertical;
+  }
+  input[type=text]::placeholder,textarea::placeholder{color:#B6A88E;}
+  input[type=text]:focus,textarea:focus{
+    outline:none;border-color:var(--brass);
+    box-shadow:0 0 0 3px rgba(168,119,46,.14);
+  }
+  textarea{min-height:64px;}
+
+  /* ---------- Generate / output ---------- */
+  .actions{text-align:center;margin:38px 0 0;}
+  .btn{
+    font:inherit;font-weight:600;cursor:pointer;border:none;
+    background:var(--ink);color:#F7F3EA;
+    padding:15px 34px;border-radius:3px;font-size:1rem;
+    letter-spacing:.01em;transition:transform .15s ease, background .2s ease;
+  }
+  .btn:hover{background:#3a2c1d;transform:translateY(-1px);}
+  .btn:active{transform:translateY(0);}
+  .btn-copy{
+    background:var(--brass);color:#fff;margin-top:14px;padding:12px 26px;font-size:.92rem;
+  }
+  .btn-copy:hover{background:var(--brass-deep);}
+
+  .output{display:none;margin-top:30px;text-align:left;}
+  .output.show{display:block;animation:rise .4s ease both;}
+  .output h3{
+    font-family:"Fraunces",serif;font-weight:600;font-size:1.15rem;margin:0 0 4px;
+  }
+  .output .sub{color:var(--ink-soft);font-size:.9rem;margin:0 0 14px;}
+  .output textarea{
+    min-height:240px;background:#fff;font-family:"Hanken Grotesk",monospace;
+    font-size:.86rem;line-height:1.5;
+  }
+  .copied{color:var(--forest);font-weight:600;font-size:.88rem;margin-left:12px;opacity:0;transition:opacity .2s;}
+  .copied.show{opacity:1;}
+
+  footer{text-align:center;margin-top:46px;color:var(--ink-soft);font-size:.8rem;letter-spacing:.04em;}
+  footer .dot{color:var(--brass);}
+
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .reveal{opacity:0;transform:translateY(14px);}
+  .reveal.in{opacity:1;transform:translateY(0);transition:opacity .5s ease, transform .5s ease;}
+
+  @media (max-width:520px){
+    section{padding:24px 18px 8px;}
+    .note{padding:18px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="monogram">L&amp;Y</div>
+    <div class="eyebrow">Hoja de Información del Proyecto</div>
+    <h1>Construyamos tu presencia<br>en internet</h1>
+    <p class="biz">L&amp;Y General Carpentry Solutions LLC · Bradenton, FL</p>
+    <div class="ruler"></div>
+  </header>
+
+  <div class="note">
+    <p>¡Hola <strong>Yasel</strong>! 👋 Para arrancar a montar todo lo de tu negocio online —página web, Google y marketing— necesito conocer algunos detalles de tu operación.</p>
+    <p>Responde lo que puedas en cada espacio. Te toma unos <strong>5 minutos</strong> y mientras más completo, mejor armamos tu estrategia. Al final, presiona <strong>“Generar mis respuestas”</strong> y envíame el texto de vuelta.</p>
+  </div>
+
+  <div class="progress">
+    <span><b id="count">0</b> de 17 respondidas</span>
+    <span class="bar"><span class="fill" id="fill"></span></span>
+  </div>
+
+  <form id="form" onsubmit="return false">
+
+    <!-- A -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">01–03</span>
+        <span class="sec-title">Números del negocio</span>
+        <span class="sec-icon">📐</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">01</span><span>Precio promedio de un trabajo <span class="hint">(tu “ticket” típico, ej. $18,000)</span></span></label>
+        <input type="text" data-q="1" data-label="Precio promedio por trabajo" placeholder="Ej. $18,000">
+      </div>
+      <div class="field">
+        <label><span class="qn">02</span><span>¿Cuánto facturaste aproximadamente el último año?</span></label>
+        <input type="text" data-q="2" data-label="Facturación del último año" placeholder="Ej. $90,000 aprox.">
+      </div>
+      <div class="field">
+        <label><span class="qn">03</span><span>¿Cuántos trabajos al mes puedes manejar sin saturarte?</span></label>
+        <input type="text" data-q="3" data-label="Trabajos al mes que puede manejar" placeholder="Ej. 2 a 3 proyectos">
+      </div>
+    </section>
+
+    <!-- B -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">04–07</span>
+        <span class="sec-title">Licencia y área</span>
+        <span class="sec-icon">📋</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">04</span><span>¿Estás licenciado? <span class="hint">(sí / no — y el número si aplica)</span></span></label>
+        <input type="text" data-q="4" data-label="Licenciado" placeholder="Ej. Sí — Lic. #...">
+      </div>
+      <div class="field">
+        <label><span class="qn">05</span><span>¿Tienes seguro / insurance?</span></label>
+        <input type="text" data-q="5" data-label="Seguro / insurance" placeholder="Sí / No">
+      </div>
+      <div class="field">
+        <label><span class="qn">06</span><span>Además de Bradenton, ¿qué ciudades cubres?</span></label>
+        <textarea data-q="6" data-label="Ciudades que cubre" placeholder="Ej. Sarasota, Lakewood Ranch, Palmetto, Parrish, Ellenton..."></textarea>
+      </div>
+      <div class="field">
+        <label><span class="qn">07</span><span>¿Hasta cuántas millas estás dispuesto a viajar?</span></label>
+        <input type="text" data-q="7" data-label="Millas dispuesto a viajar" placeholder="Ej. 25 millas">
+      </div>
+    </section>
+
+    <!-- C -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">08–11</span>
+        <span class="sec-title">Presencia digital actual</span>
+        <span class="sec-icon">🌐</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">08</span><span>¿Ya tienes página web? <span class="hint">(si sí, pega el link)</span></span></label>
+        <input type="text" data-q="8" data-label="Página web" placeholder="https://...  o  No tengo">
+      </div>
+      <div class="field">
+        <label><span class="qn">09</span><span>¿Tienes un dominio comprado? ¿Cuál?</span></label>
+        <input type="text" data-q="9" data-label="Dominio" placeholder="Ej. lycarpentry.com  o  No">
+      </div>
+      <div class="field">
+        <label><span class="qn">10</span><span>¿Tienes Perfil de Negocio de Google? <span class="hint">(Google Business Profile — ¿está verificado?)</span></span></label>
+        <input type="text" data-q="10" data-label="Perfil de Google" placeholder="Sí / No — verificado o no">
+      </div>
+      <div class="field">
+        <label><span class="qn">11</span><span>¿Tienes Facebook y/o Instagram del negocio?</span></label>
+        <textarea data-q="11" data-label="Redes sociales" placeholder="Pega los links de Facebook / Instagram"></textarea>
+      </div>
+    </section>
+
+    <!-- D -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">12–14</span>
+        <span class="sec-title">Fotos, videos y logo</span>
+        <span class="sec-icon">📸</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">12</span><span>Link de la carpeta con TODAS tus fotos y videos de trabajos <span class="hint">(Google Drive, Dropbox, etc.)</span></span></label>
+        <textarea data-q="12" data-label="Link de fotos y videos" placeholder="Pega aquí el link de la carpeta"></textarea>
+      </div>
+      <div class="field">
+        <label><span class="qn">13</span><span>Archivo del logo en alta calidad <span class="hint">(ponlo en el mismo link o dilo aquí)</span></span></label>
+        <input type="text" data-q="13" data-label="Logo en alta calidad" placeholder="Ej. Está en la carpeta / te lo adjunto">
+      </div>
+      <div class="field">
+        <label><span class="qn">14</span><span>¿Tienes colores de marca definidos? ¿Cuáles?</span></label>
+        <input type="text" data-q="14" data-label="Colores de marca" placeholder="Ej. Azul y gris  o  No tengo">
+      </div>
+    </section>
+
+    <!-- E -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">15–16</span>
+        <span class="sec-title">Ventas y experiencia</span>
+        <span class="sec-icon">💵</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">15</span><span>¿Ofreces financiamiento a tus clientes, o te interesaría ofrecerlo?</span></label>
+        <input type="text" data-q="15" data-label="Financiamiento" placeholder="Sí / No / Me interesaría">
+      </div>
+      <div class="field">
+        <label><span class="qn">16</span><span>¿Cuántos años exactos llevas en el negocio? <span class="hint">(para usarlo en el marketing)</span></span></label>
+        <input type="text" data-q="16" data-label="Años en el negocio" placeholder="Ej. 5 años">
+      </div>
+    </section>
+
+    <!-- F -->
+    <section class="reveal">
+      <div class="sec-head">
+        <span class="sec-num">17</span>
+        <span class="sec-title">Reseñas</span>
+        <span class="sec-icon">⭐</span>
+      </div>
+      <div class="field">
+        <label><span class="qn">17</span><span>¿Tienes clientes pasados contentos para pedirles una reseña en Google? <span class="hint">(¿cuántos, y tienes sus contactos?)</span></span></label>
+        <textarea data-q="17" data-label="Clientes para reseñas" placeholder="Ej. Sí, unos 8 — tengo sus teléfonos"></textarea>
+      </div>
+      <div class="field">
+        <label><span class="qn">+</span><span>¿Algo más que quieras agregar? <span class="hint">(opcional)</span></span></label>
+        <textarea data-q="extra" data-label="Notas adicionales" placeholder="Cualquier detalle que creas importante..."></textarea>
+      </div>
+    </section>
+
+  </form>
+
+  <div class="actions">
+    <button class="btn" id="generate">Generar mis respuestas</button>
+  </div>
+
+  <div class="output" id="output">
+    <h3>✅ ¡Listo, Yasel!</h3>
+    <p class="sub">Copia todo este texto y envíaselo de vuelta a tu equipo digital.</p>
+    <textarea id="result" readonly></textarea>
+    <div>
+      <button class="btn btn-copy" id="copy">Copiar texto</button>
+      <span class="copied" id="copied">¡Copiado! ✓</span>
+    </div>
+  </div>
+
+  <footer>L&amp;Y General Carpentry Solutions LLC <span class="dot">·</span> Tu hogar, transformado con calidad</footer>
+
+</div>
+
+<script>
+  const fields = Array.from(document.querySelectorAll('[data-q]'));
+  const mains = fields.filter(f => f.dataset.q !== 'extra');
+  const countEl = document.getElementById('count');
+  const fillEl = document.getElementById('fill');
+
+  function updateProgress(){
+    const done = mains.filter(f => f.value.trim() !== '').length;
+    countEl.textContent = done;
+    fillEl.style.width = (done / mains.length * 100) + '%';
+  }
+  fields.forEach(f => f.addEventListener('input', updateProgress));
+
+  document.getElementById('generate').addEventListener('click', () => {
+    let out = 'HOJA DE INFORMACIÓN — L&Y General Carpentry Solutions LLC\n';
+    out += '==================================================\n\n';
+    mains.forEach(f => {
+      const v = f.value.trim() || '(sin responder)';
+      out += f.dataset.q + '. ' + f.dataset.label + ': ' + v + '\n';
+    });
+    const extra = document.querySelector('[data-q="extra"]').value.trim();
+    if (extra) out += '\nNotas adicionales: ' + extra + '\n';
+
+    const result = document.getElementById('result');
+    result.value = out;
+    const box = document.getElementById('output');
+    box.classList.add('show');
+    box.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('copy').addEventListener('click', async () => {
+    const result = document.getElementById('result');
+    const copied = document.getElementById('copied');
+    try{
+      await navigator.clipboard.writeText(result.value);
+    }catch(e){
+      result.focus(); result.select(); document.execCommand('copy');
+    }
+    copied.classList.add('show');
+    setTimeout(() => copied.classList.remove('show'), 2200);
+  });
+
+  // gentle scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
